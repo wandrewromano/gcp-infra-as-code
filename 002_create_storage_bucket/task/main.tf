@@ -10,16 +10,26 @@ terraform {
 }
 
 provider "google" {
-  project = "" # TODO: your project ID
+  project = "training-project-11-f0a7d1" # TODO: your project ID
   region  = "us-central1"
 }
 
-# TODO: resource "google_storage_bucket" "my_bucket" {
-#   name                        = "___"  # must be globally unique — include your project ID
-#   location                    = "___"  # a region or multi-region, e.g. "US"
-#   uniform_bucket_level_access = ___    # true
-#
-#   # Optional: the docs page above has an Argument Reference listing
-#   # everything else this resource accepts — you'll use two more of
-#   # them for the stretch goal below.
-# }
+# TODO: define a google_storage_bucket resource named "my_bucket"
+resource google_storage_bucket "my_bucket" {
+  name = "training-project-11-f0a7d1-002"
+  location = "us-central1"
+  uniform_bucket_level_access = true
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle_rule {
+    action {
+      type = "Delete"
+    }
+    condition {
+      age = 30
+    }
+  }
+}

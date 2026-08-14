@@ -9,15 +9,28 @@ terraform {
   }
 }
 
+# TODO: define a google_storage_bucket resource using var.bucket_name
 provider "google" {
-  # TODO: project = var.project_id
-  # TODO: region  = var.region
+  project = var.project_id # TODO: your project ID
+  region  = var.region
 }
 
-# TODO: resource "google_storage_bucket" "my_bucket" {
-#   # same shape as 002_create_storage_bucket — but instead of literal
-#   # strings, wire it to your new variables:
-#   name                        = var.bucket_name
-#   location                    = var.region
-#   uniform_bucket_level_access = true
-# }
+# TODO: define a google_storage_bucket resource named "my_bucket"
+resource google_storage_bucket "my_bucket" {
+  name = var.bucket_name
+  location = var.region
+  uniform_bucket_level_access = true
+
+  versioning {
+    enabled = true
+  }
+
+  lifecycle_rule {
+    action {
+      type = "Delete"
+    }
+    condition {
+      age = 30
+    }
+  }
+}
