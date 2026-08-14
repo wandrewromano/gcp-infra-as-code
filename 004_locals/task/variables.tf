@@ -9,6 +9,11 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "environment" {
+  default = "dev"
+  
+}
+
 # TODO: variable "environment" (string, default "dev").
 # You'll add a `validation` block to this exact variable in
 # 005_variable_validation — keep the name and type as described in
