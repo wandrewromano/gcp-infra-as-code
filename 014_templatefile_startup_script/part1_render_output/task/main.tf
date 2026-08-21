@@ -7,3 +7,9 @@ terraform {
 # TODO: output "rendered_message" — render templates/welcome.tftpl
 # with { name = var.your_name } using templatefile(). No provider or
 # GCP resource is needed for this part.
+
+output "rendered_message" {
+  value = templatefile("${path.module}/templates/welcome.tftpl", {
+    name = var.your_name
+  })
+}
