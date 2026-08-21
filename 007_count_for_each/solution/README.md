@@ -28,7 +28,7 @@ aren't touched at all, because their keys never changed.
 
 ## Why this specific example (buckets, not something with more moving parts)
 
-Same reasoning as [017_build_a_module](../017_build_a_module) coming
+Same reasoning as [018_build_a_module](../018_build_a_module) coming
 before the capstone — isolating one new concept (`for_each`) using a
 resource type you already know well, instead of learning it and a new
 resource type at the same time.

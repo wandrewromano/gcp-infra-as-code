@@ -44,7 +44,7 @@ upload one in [006_upload_bucket_object](../006_upload_bucket_object)).
    `us-central1` (Iowa), `europe-west1` (Belgium), etc. Most of this
    course defaults to `us-central1`; pick whatever's closest to you,
    it doesn't otherwise matter for these exercises. (You'll also see
-   **zones** starting in [012_create_vm](../012_create_vm) — a zone
+   **zones** starting in [013_create_vm](../013_create_vm) — a zone
    is one specific data center *within* a region, e.g.
    `us-central1-a`. Regional resources like this bucket only need a
    region; VMs need a specific zone.)
