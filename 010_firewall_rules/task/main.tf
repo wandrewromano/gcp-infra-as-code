@@ -14,6 +14,13 @@ provider "google" {
   region  = var.region
 }
 
+## Implemented via `gcloud services enable compute.googleapis.com --project training-project-11-f0a7d1`
+# resource "google_project_service" "compute" {
+#   project            = var.project_id
+#   service            = "compute.googleapis.com"
+#   disable_on_destroy = false
+# }
+
 # TODO: google_compute_network + google_compute_subnetwork (from exercise 008)
 resource "google_compute_network" "my_network" {
   name                    = "my-network"
