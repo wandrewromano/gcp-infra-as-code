@@ -14,25 +14,23 @@ provider "google" {
   region  = var.region
 }
 
-# TODO: resource "google_project_service" "compute" {
-#   project            = var.project_id
-#   service            = "compute.googleapis.com"
-#   disable_on_destroy = false
-# }
+resource "google_project_service" "compute" {
+  project            = var.project_id
+  service            = "compute.googleapis.com"
+  disable_on_destroy = false
+}
 # Optional if you already ran `gcloud services enable` by hand — see
 # README.md step 1.
 
-# TODO: resource "google_compute_network" "example" {
-#   name                    = "___"
-#   auto_create_subnetworks = false
-# }
+resource "google_compute_network" "my_network" {
+  name                    = "my-network"
+  auto_create_subnetworks = false
+  depends_on = [ google_project_service.compute ]
+}
 
-# TODO: resource "google_compute_subnetwork" "example" {
-#   name          = "___"
-#   ip_cidr_range = "___"  # a /24, e.g. "10.0.1.0/24"
-#   region        = var.region
-#   network       = ___  # reference the network resource above by its `id`
-#
-#   # Optional: the google_compute_subnetwork docs page above has more
-#   # under Argument Reference, e.g. `private_ip_google_access`.
-# }
+resource "google_compute_subnetwork" "example" {
+  name          = "my-subnet"
+  ip_cidr_range = "192.168.0.0/24"  # a /24, e.g. "10.0.1.0/24"
+  region        = var.region
+  network       = google_compute_network.my_network.id  # reference the network resource above by its `id`
+}
