@@ -15,6 +15,15 @@ provider "google" {
 }
 
 # TODO: google_project_service "secretmanager" (secretmanager.googleapis.com)
+# Enabled via gcloud
+
+resource "google_secret_manager_secret" "app_secret" {
+  secret_id = "app-secret"
+  replication {
+    auto {}
+  }
+  
+}
 
 # TODO: google_secret_manager_secret "app_secret"
 # - secret_id = "app-secret"
