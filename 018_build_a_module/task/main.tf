@@ -14,17 +14,14 @@ provider "google" {
   region  = var.region
 }
 
-# TODO: module "logs" {
-#   source   = "./modules/bucket_with_lifecycle"
-#   name     = "${var.project_id}-logs"
-#   age_days = 14
-# }
+module "logs" {
+  source   = "./modules/bucket_with_lifecycle"
+  name     = "${var.project_id}-logs"
+  age_days = 14
+}
 
-# TODO: module "backups" {
-#   source   = "./modules/bucket_with_lifecycle"
-#   name     = "${var.project_id}-backups"
-#   age_days = 90
-# }
-
-# TODO: root outputs referencing module.logs.bucket_url and
-#       module.backups.bucket_url
+module "backups" {
+  source   = "./modules/bucket_with_lifecycle"
+  name     = "${var.project_id}-backups"
+  age_days = 90
+}
