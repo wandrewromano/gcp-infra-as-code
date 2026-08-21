@@ -83,7 +83,7 @@ there:
 
 Just follow whatever that exercise's own README says. One value in
 the whole course is the exception to "commit it like everything
-else": [015_secret_manager](../015_secret_manager) introduces an
+else": [016_secret_manager](../016_secret_manager) introduces an
 actually-sensitive value, and that exercise explains why it's handled
 completely differently.
 
@@ -119,8 +119,8 @@ terraform destroy      # tears everything back down
   works by comparing your `.tf` files against this file, not against
   GCP directly asking "does this exist yet?" every time. You won't
   need to think about this file much until
-  [018_remote_state](../018_remote_state), which moves it off local
-  disk, and [019](../019_configuration_drift)–[021](../021_import_existing_resources),
+  [019_remote_state](../019_remote_state), which moves it off local
+  disk, and [021](../021_configuration_drift)–[024](../024_import_existing_resources),
   which are entirely about what happens when this file and the real
   world disagree — but it's been there, quietly, since your very
   first `terraform apply` in
@@ -147,16 +147,16 @@ debugging something a teammate or a CI pipeline created).
   `gcloud compute instances list`, `gcloud storage buckets list`) if
   you'd rather check from the terminal than the Console.
 
-A couple of exercises give you a direct link for free — `012_create_vm`'s
+A couple of exercises give you a direct link for free — `013_create_vm`'s
 solution outputs `vm_external_ip`, and `terraform output` after any
 `apply` will print whatever that exercise defined, which is often
 faster than navigating the Console at all.
 
-## 6. Manual ("clickops") resources — [019_configuration_drift](../019_configuration_drift) and [021_import_existing_resources](../021_import_existing_resources)
+## 6. Manual ("clickops") resources — [021_configuration_drift](../021_configuration_drift) and [024_import_existing_resources](../024_import_existing_resources)
 
 Two exercises deliberately have you touch GCP outside of Terraform —
-`019_configuration_drift` has you edit a resource by hand with
-`gcloud`, and `021_import_existing_resources` has you create a bucket
+`021_configuration_drift` has you edit a resource by hand with
+`gcloud`, and `024_import_existing_resources` has you create a bucket
 by hand before Terraform ever knows about it. Both are intentional:
 you can't learn how Terraform handles "someone changed this by hand"
 without actually doing it. But it means Terraform doesn't know about
@@ -175,7 +175,7 @@ up.
   Terraform-managed resources.
 - **Clean up depends on whether you finished the exercise:**
   - If a manually-created resource ends up successfully imported into
-    Terraform (as in `021`), it's now Terraform-managed — a normal
+    Terraform (as in `024`), it's now Terraform-managed — a normal
     `terraform destroy` handles it like anything else.
   - If you stop partway — created something by hand but never
     imported it, or abandoned the exercise — Terraform still doesn't

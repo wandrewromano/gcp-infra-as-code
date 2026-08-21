@@ -13,7 +13,7 @@ scale, they create and destroy in seconds (no multi-minute VM boot or
 network propagation to wait through), and they don't drag in any
 other concepts (networking, IAM, compute) you haven't learned yet. In
 the real world, buckets show up everywhere — static website hosting,
-storing Terraform state itself (see [018_remote_state](../../018_remote_state)),
+storing Terraform state itself (see [019_remote_state](../../019_remote_state)),
 data lake ingestion, backups, and build artifacts.
 
 ## Why these specific settings

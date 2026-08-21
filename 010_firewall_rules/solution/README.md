@@ -35,7 +35,7 @@ which is the mistake this rule is designed to make hard to make.
 ## Things worth noticing
 
 - Nothing enforces that a VM using these rules is actually tagged —
-  tags are just labels. If you create a VM in exercise 012 and forget
+  tags are just labels. If you create a VM in exercise 013 and forget
   the `tags` attribute, these rules simply won't apply to it (which
   usually means you can't reach it at all — that's the fail-safe
   direction to err on).

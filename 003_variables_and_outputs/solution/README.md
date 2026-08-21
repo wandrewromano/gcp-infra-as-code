@@ -43,6 +43,7 @@ configs that need to reference what this one created).
   see the README's "Why we're committing terraform.tfvars" section.
   None of `project_id`/`region`/`bucket_name` are sensitive, so
   there's no reason to hide them.
-  [015_secret_manager](../../015_secret_manager) is where a value
+  [016_secret_manager](../../016_secret_manager) is where a value
   that actually needs hiding shows up, and it's handled completely
-  differently.
+  differently — it never becomes a Terraform variable at all, not
+  even a `sensitive` one.

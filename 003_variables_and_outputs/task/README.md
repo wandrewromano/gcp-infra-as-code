@@ -56,14 +56,18 @@ template file, a copy step, remembering what's gitignored). So in
 this course, `terraform.tfvars` is committed like any other file,
 starting here.
 
-That's not true of every variable you'll meet, though.
-[015_secret_manager](../../015_secret_manager) introduces a genuinely
-sensitive value, and treats it completely differently — never written
-to any file, committed or not. That contrast is the actual lesson:
-most config is fine to commit; a real secret needs a different
-mechanism (an env var, a `-var` flag typed interactively, or in
-practice a secrets vault / CI injection) — not just "put it in a file
-nobody's supposed to look at."
+That's not true of every value you'll meet, though.
+[016_secret_manager](../../016_secret_manager) introduces a genuinely
+sensitive value, and treats it completely differently — not just kept
+out of `terraform.tfvars`, but kept out of Terraform *entirely*: it
+never becomes a `variable` at all, because anything that does becomes
+a value Terraform writes to its own state file, sensitive or not.
+That contrast is the actual lesson: most config is fine to commit as
+a plain Terraform variable; a real secret doesn't belong to Terraform
+as a value in the first place — it's supplied directly to the system
+that stores it (in practice, a secrets vault or CI injection step),
+not "put it in a file nobody's supposed to look at," and not "pass it
+to Terraform more carefully" either.
 
 ## Hints
 
