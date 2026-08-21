@@ -18,3 +18,15 @@ provider "google" {
 # - force_destroy = true
 # - uniform_bucket_level_access = true
 # - labels = { environment = "dev" }
+
+resource "google_storage_bucket" "drift_demo" {
+  name = "${var.project_id}-drift-bucket"
+  location = var.region
+  
+  force_destroy = true
+  uniform_bucket_level_access = true
+  labels = {
+    environment = "dev"
+  }
+  
+}
