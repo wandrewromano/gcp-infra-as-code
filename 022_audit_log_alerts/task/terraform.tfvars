@@ -1,3 +1,3 @@
-project_id         = "your-gcp-project-id"
+project_id         = "training-project-11-f0a7d1"
 region             = "us-central1"
-notification_email = "you@example.com"
+notification_email = "aromano@jackhenry.com"
