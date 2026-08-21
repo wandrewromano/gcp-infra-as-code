@@ -1,4 +1,4 @@
-project_id        = "your-gcp-project-id"
+project_id        = "training-project-11-f0a7d1"
 region            = "us-central1"
-state_bucket_name = "your-gcp-project-id-tf-state"
-your_email        = "you@example.com"
+state_bucket_name = "training-project-11-f0a7d1-tf-state"
+your_email        = "aromano@jackhenry.com"
