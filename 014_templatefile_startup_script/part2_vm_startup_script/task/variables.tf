@@ -9,4 +9,8 @@ variable "region" {
   default     = "us-central1"
 }
 
+variable "welcome_message" {
+  description = "Hello message"
+  default = "Hello from templatefile()!"
+}
 # TODO: variable "welcome_message" (string, default "Hello from Terraform templatefile()!")
